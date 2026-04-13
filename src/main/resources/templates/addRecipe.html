@@ -1,0 +1,81 @@
+<!doctype html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+  <head>
+    <title>Lisää resepti</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container add-recipe">
+      <h2>Lisää resepti</h2>
+
+      <form th:object="${recipe}" action="/save" method="post">
+        <input
+          type="hidden"
+          th:name="${_csrf.parameterName}"
+          th:value="${_csrf.token}" />
+        <div>
+          <label>Otsikko:</label><br />
+          <input type="text" th:field="*{title}" />
+          <div
+            th:if="${#fields.hasErrors('title')}"
+            th:errors="*{title}"
+            class="error-text">
+            Error
+          </div>
+        </div>
+
+        <div>
+          <label>Ohjeet:</label><br />
+          <textarea th:field="*{instructions}"></textarea>
+          <div
+            th:if="${#fields.hasErrors('instructions')}"
+            th:errors="*{instructions}"
+            class="error-text">
+            Error
+          </div>
+        </div>
+
+        <div class="ingredients">
+          <h3>Aineosat</h3>
+
+          <div id="ingredients" class="add-ing">
+            <div
+              th:if="*{recipeIngredients == null or #lists.isEmpty(recipeIngredients)}">
+              <input
+                type="text"
+                name="recipeIngredients[0].ingredient.name"
+                placeholder="Ainesosa" />
+            </div>
+          </div>
+
+          <button type="button" onclick="addIngredient()">
+            Lisää ainesosa
+          </button>
+        </div>
+
+        <br />
+        <button type="submit">Tallenna</button>
+      </form>
+
+      <a href="/recipes" class="back button">Takaisin</a>
+
+      <script>
+        function addIngredient() {
+          const container = document.getElementById("ingredients");
+          const index = container.children.length;
+
+          const div = document.createElement("div");
+
+          div.innerHTML = `<input type="text"
+      name="recipeIngredients[${index}].ingredient.name"
+      placeholder="Ainesosa" />`;
+
+          container.appendChild(div);
+        }
+      </script>
+    </div>
+  </body>
+</html>

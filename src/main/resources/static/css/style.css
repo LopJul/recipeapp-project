@@ -1,0 +1,218 @@
+/* Reseptit- ja Suosikit-sivut*/
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 30px 40px 30px 40px;
+}
+
+.top-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 10px;
+  gap: 5px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.no-fav {
+  margin-left: 45px;
+}
+
+/*Resepti-kortit*/
+.recipe,
+.favourites {
+  background: white;
+  padding: 20px;
+  margin: 0 40px 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/*Otsitkot*/
+h1 {
+  align-items: center;
+}
+h2,
+h3 {
+  margin-top: 0;
+}
+
+.top-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.top-buttons form {
+  margin: auto 0 0 0;
+}
+
+.button-group,
+.favourites-button {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+a.button,
+input.button,
+button {
+  padding: 8px 14px;
+  background: #ff7043;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+a.button:hover,
+button:hover {
+  background: #ff5722;
+}
+
+a.delete,
+button.delete,
+input.delete {
+  background: #e74c3c;
+}
+
+a.delete:hover,
+button.delete:hover,
+input.delete:hover {
+  background: #c0392b;
+}
+
+a {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+a.back,
+a.fav-back {
+  background: blue;
+  width: fit-content;
+}
+
+a.fav-back {
+  margin-left: 45px;
+}
+
+a.back:hover,
+a.fav-back:hover {
+  background: lightblue;
+}
+
+.user-info {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Login/Logout -sivu */
+
+body.login-page {
+  margin: 0;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background: url("/images/login_food.jpg") no-repeat center center/cover;
+}
+
+.login-container {
+  background: rgba(0, 0, 0, 0.5);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: white;
+  padding: 50px;
+  border-radius: 10px;
+  width: 400px;
+  height: 200px;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.login-box button {
+  width: 60%;
+  padding: 10px;
+  background: #ff7043;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background: #ff5722;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.success {
+  color: lightgreen;
+  margin-bottom: 10px;
+}
+
+/*Muokkaa reseptiä -sivu */
+
+.edit-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-container > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-container > form > button {
+  width: fit-content;
+}
+
+.edit-title {
+  margin-bottom: 10px;
+}
+
+.ingredients {
+  margin-top: 10px;
+}
+
+.add-ing {
+  margin-bottom: 10px;
+}
+
+/*Virhe -teksti*/
+
+.error-text {
+  font-size: small;
+  font-weight: bold;
+  color: red;
+}

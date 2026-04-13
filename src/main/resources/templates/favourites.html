@@ -1,0 +1,89 @@
+<!doctype html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+  <head>
+    <title>Suosikki reseptit</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="recipes-container">
+      <div class="top-bar">
+        <h1>Suosikki reseptit</h1>
+        <div class="top-right">
+          <div class="top-buttons">
+            <form th:action="@{/logout}" method="post">
+              <input
+                type="hidden"
+                th:name="${_csrf.parameterName}"
+                th:value="${_csrf.token}" />
+              <input
+                type="submit"
+                class="button delete"
+                value="Kirjaudu ulos" />
+            </form>
+          </div>
+
+          <div class="user-info">
+            <h3>Käyttäjä: <span sec:authentication="name"></span></h3>
+          </div>
+        </div>
+      </div>
+
+      <div th:if="${#lists.isEmpty(favourites)}">
+        <p class="no-fav">Et ole vielä tykännyt yhdestäkään reseptistä.</p>
+      </div>
+      <!-- <div th:each="recipe : ${favourites}" class="favourites">
+        <h3 th:text="${recipe.title}"></h3>
+        <p th:text="${recipe.instructions}"></p>
+
+        <div
+          th:if="${recipe.recipeIngredients != null and !recipe.recipeIngredients.isEmpty()}">
+          <h4>Aineosat:</h4>
+          <ul>
+            <li
+              th:each="ri : ${recipe.recipeIngredients}"
+              th:text="${ri.ingredient.name}"></li>
+          </ul>
+        </div>
+        <form
+          th:action="@{/recipes/{id}/unlike(id=${recipe.id})}"
+          method="post">
+          <input
+            type="hidden"
+            th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}" />
+          <button type="submit">Poista suosikeista</button>
+        </form>
+      </div> -->
+      <div th:each="recipe : ${favourites}" class="favourites">
+        <h3 th:text="${recipe.title}"></h3>
+        <p th:text="${recipe.instructions}"></p>
+
+        <div
+          th:if="${recipe.recipeIngredients != null and !#lists.isEmpty(recipe.recipeIngredients)}">
+          <h4>Aineosat:</h4>
+          <ul>
+            <li
+              th:each="ri : ${recipe.recipeIngredients}"
+              th:text="${ri.ingredient.name}"></li>
+          </ul>
+        </div>
+
+        <form
+          th:action="@{/recipes/{id}/unlike(id=${recipe.id})}"
+          method="post">
+          <input
+            type="hidden"
+            th:name="${_csrf.parameterName}"
+            th:value="${_csrf.token}" />
+          <button type="submit">Poista suosikeista</button>
+        </form>
+      </div>
+
+      <a href="/recipes" class="fav-back button">Takaisin</a>
+      <hr />
+    </div>
+  </body>
+</html>

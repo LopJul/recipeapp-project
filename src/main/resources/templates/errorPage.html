@@ -1,0 +1,17 @@
+<!doctype html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+  <head>
+    <title>Virhe</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="error-container">
+      <h1>Virhe</h1>
+      <p th:text="${message}"></p>
+    </div>
+    <a href="/recipes" class="back button">Takaisin</a>
+  </body>
+</html>
