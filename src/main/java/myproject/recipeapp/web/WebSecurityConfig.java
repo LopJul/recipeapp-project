@@ -4,6 +4,7 @@ package myproject.recipeapp.web;
  
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 //import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -35,7 +36,7 @@ public class WebSecurityConfig {
                 .requestMatchers("/css/**", "/images/**").permitAll()
                 .anyRequest().authenticated())
                 // Käyttää HTTP Basic -autentikointia oletusasetuksilla (Postman)
-                        //.httpBasic(Customizer.withDefaults())
+                        .httpBasic(Customizer.withDefaults())
                 .headers(headers ->
                     headers.frameOptions(frameOptions -> frameOptions
                         .disable())) // for h2console

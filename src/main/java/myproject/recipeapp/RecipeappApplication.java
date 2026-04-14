@@ -17,7 +17,7 @@ public class RecipeappApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RecipeappApplication.class, args);
 	}
-}
+
 // @Bean 
 // public CommandLineRunner recipeDemo(RecipeRepository recipeRepository, UserRepository userRepository) {
 // 		return (args) -> {
@@ -40,4 +40,4 @@ public class RecipeappApplication {
 //  		};
 //  }
 
-// }
+}
