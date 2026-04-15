@@ -28,7 +28,7 @@ VALUES
 ('Riisi'),
 ('Kerma'),
 ('Sipuli'),
-('Voi'),
+('Pesto'),
 ('Pasta');
 
 CREATE TABLE recipe (
@@ -40,8 +40,8 @@ CREATE TABLE recipe (
 
   INSERT INTO recipe (title, instructions, app_user_id)
 VALUES
-('Kana curry', 'Paista kana ja lisää curry ja kerma.', 1),
-('Voipasta', 'Keitä pasta ja lisää voi.', 1);
+('Kanacurry', 'Leikkaa sipuli pieniksi paloiksi ja paista kana kanssa. Lisää loppuvaiheessa curry ja kerma. Keitä riisi ja nauti kastikkeen kanssa.', 1),
+('Pestopasta', 'Keitä pasta ja lisää pesto sekaan.', 1);
 
 CREATE TABLE recipe_ingredient (
   id BIGSERIAL PRIMARY KEY,
@@ -53,7 +53,7 @@ CREATE TABLE recipe_ingredient (
 VALUES
 (1, 1),
 (1, 4),
-(2, 2),
+(1, 2),
 (2, 5),
 (2, 6);
 
