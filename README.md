@@ -25,10 +25,18 @@ The application allows users to browse recipes and manage favorites, while admin
 
 - Create, edit and delete recipes
 
+Below screenshot of admin frontpage:
+
+![Admin Frontpage](pictures/admin_page.png)
+
 ### User
 
 - View recipes
 - Add and remove favourite recipes
+
+Below screenshot of user favourites page:
+
+![User Favourites Page](pictures/user_favourites.png)
 
 ## API Endpoints
 
@@ -40,18 +48,30 @@ The application allows users to browse recipes and manage favorites, while admin
 | PUT    | /api/recipes/{id} | Update recipe     |
 | DELETE | /api/recipes/{id} | Delete recipe     |
 
+### API testing
+
+Postman GET request and JSON response:
+
+![Postman Request](pictures/get_request.png)
+
+![JSON Response](pictures/json_response.png)
+
 ## Database
 
-- PostgreSQL used as the primary database
-- H2 in-memory database used for testing
-- Users <-> Recipes (Many-to-Many relation via favourites)
-- Recipes <-> Ingredients (One-to-Many relation via recipe_ingredient join table)
+- PostgreSQL is used as the primary database
+- H2 in-memory database is used for testing
+- Users <-> Recipes (Many-to-Many relationship implemented through a favourites feature, allowing users to save personal recipe collections)
+- Recipes <-> Ingredients (One-to-Many relationship implemented via a recipe_ingredient join table)
 
 ## Security
 
 - Spring Security authentication
 - Role-based authorization using @PreAuthorize
 - Passwords are hashed using BCrypt
+
+Below screenshot of Login page:
+
+![Login Page](pictures/login_page.png)
 
 ## Validation
 
